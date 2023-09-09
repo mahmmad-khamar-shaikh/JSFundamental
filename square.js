@@ -1,8 +1,8 @@
 
-const previousresul = [];
+const cachedResult = [];
 function square(num) {
-    if (previousresul[num] != null) {
-        return previousresul[num];
+    if (cachedResult[num] != null) {
+        return cachedResult[num];
     }
     let sqr = 0;
     for (let i = 0; i < num; i++) {
@@ -10,7 +10,7 @@ function square(num) {
             sqr = sqr + 1;
         }
     }
-    previousresul[num] = sqr;
+    cachedResult[num] = sqr;
     return sqr;
 }
 
