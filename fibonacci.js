@@ -11,7 +11,6 @@ function fibonacciWithMemoization(num, cachedResult = []) {
     cachedResult[num] = result;
     return result;
 }
-
 function fibonacci(num){
     if(num<=2){
         return 1;
