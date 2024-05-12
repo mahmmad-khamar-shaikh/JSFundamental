@@ -26,7 +26,29 @@ function drawTable(rowToAdd) {
     const title = rowToAdd.title;
     const status = rowToAdd.completed;
 
-    tr.innerHTML = `<td> ${userID}</td> <td> ${title} </td><td>${status} </td>`;
+    const td1 = document.createElement("td");
+    td1.innerHTML=userID;
+    td1.style.border="1px solid #000";
+  
+    const td2 = document.createElement("td");
+    td2.innerHTML=title;
+    td2.style.border="1px solid #000";
+  
+  
+    const td3 = document.createElement("td");
+    td3.innerHTML=status;
+    td3.style.border="1px solid #000";
+  
+  
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+
+
+
+
+    //tr.innerHTML = `<td> ${userID}</td> <td> ${title} </td><td>${status} </td>`;
+    tr.style.border="1px solid #000";
     if (status) {
       tr.style.color = "green";
     }
@@ -52,3 +74,88 @@ function validate(element, trigger) {
     element.title = "Interval";
   }
 }
+
+function initilizeForm() {
+
+  //Define main Div - Form
+  const appDiv = document.createElement("div");
+  appDiv.id = "app";
+
+
+  // Define input box
+  const inputTxt = document.createElement("input");
+  inputTxt.type = "text";
+  inputTxt.title = "Interval";
+  inputTxt.id = "txtInterval";
+  appDiv.appendChild(inputTxt);
+
+  //define Trigger Button
+  const btnFetchRef = document.createElement("button");
+  btnFetchRef.name = "setMeUp";
+  btnFetchRef.id = "btnSetup";
+  btnFetchRef.innerHTML = "Fetch Post";
+
+  btnFetchRef.addEventListener('click',setMeup);
+  appDiv.appendChild(btnFetchRef);
+
+
+
+// Define Reset button
+  const btnRestRef = document.createElement("button");
+  btnRestRef.click = "stopProcess()";
+  btnRestRef.name = "stopMe";
+  btnRestRef.id = "btnStop";
+  btnRestRef.innerHTML = "Stop";
+btnRestRef.addEventListener('click',stopProcess)
+
+  // add Form to Main div
+  appDiv.appendChild(btnRestRef);
+
+
+
+// Define Result div
+  const resultDvRef = document.createElement("div");
+  resultDvRef.id = "result";
+
+
+  // Define Table show response
+  const tableRef = document.createElement("table");
+  tableRef.id = "tblResult";
+  tableRef.style.border = "1px solid #000";
+
+// Define Header row
+  const headerRow = document.createElement("tr");
+  const th1 = document.createElement("th");
+  th1.innerHTML="UserId"
+  th1.style.border="1px solid #000";
+
+  const th2 = document.createElement("th");
+  th2.innerHTML="Title"
+  th2.style.border="1px solid #000";
+
+
+  const th3 = document.createElement("th");
+  th3.innerHTML="Completed"
+  th3.style.border="1px solid #000";
+
+
+  headerRow.appendChild(th1);
+  headerRow.appendChild(th2);
+  headerRow.appendChild(th3);
+
+  // headerRow.innerHTML = `<th>UserID</th> <th>Title </th><th>Completed </th>`;
+  headerRow.style.border="1px solid #000";
+
+  // add Header row to Table
+  tableRef.appendChild(headerRow);
+
+  // Add table to Result Div
+  resultDvRef.appendChild(tableRef);
+
+
+  document.body.appendChild(appDiv);
+  document.body.appendChild(resultDvRef);
+
+}
+
+initilizeForm();
