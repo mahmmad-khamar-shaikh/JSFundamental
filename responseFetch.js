@@ -43,11 +43,6 @@ function drawTable(rowToAdd) {
     tr.appendChild(td1);
     tr.appendChild(td2);
     tr.appendChild(td3);
-
-
-
-
-    //tr.innerHTML = `<td> ${userID}</td> <td> ${title} </td><td>${status} </td>`;
     tr.style.border="1px solid #000";
     if (status) {
       tr.style.color = "green";
