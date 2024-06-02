@@ -35,7 +35,22 @@ function traverseNode() {
   let currentNode = myList.head;
   console.log(JSON.stringify(myList, null, 4));
   while (currentNode) {
-    console.log(currentNode.data)
+    console.log(currentNode.data);
+    currentNode = currentNode.next;
+  }
+}
+
+function removeNode() {
+  const searchElement =  document.getElementById("txtNode").value;
+  let currentNode = myList.head;
+  while (currentNode) {
+    if (currentNode.data == searchElement) {
+      console.log(`Element Found ${currentNode.data} breaking out of loop.`);
+      break;
+    }
+    console.log(
+      `Element {${currentNode.data}} not found yet, moving to next element`
+    );
     currentNode = currentNode.next;
   }
 }
