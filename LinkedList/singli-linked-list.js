@@ -35,13 +35,14 @@ function traverseNode() {
   let currentNode = myList.head;
   console.log(JSON.stringify(myList, null, 4));
   while (currentNode) {
-    console.log(currentNode.data);
+   -- console.log(`Data ---> ${currentNode.data}`);
+   -- console.log(`Node ---> ${ JSON.stringify(currentNode.next, undefined, 2)}`);
     currentNode = currentNode.next;
   }
 }
 
 function removeNode() {
-  const searchElement =  document.getElementById("txtNode").value;
+  const searchElement = document.getElementById("txtNode").value;
   let currentNode = myList.head;
   while (currentNode) {
     if (currentNode.data == searchElement) {
