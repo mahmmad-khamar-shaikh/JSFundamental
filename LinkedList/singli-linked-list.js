@@ -50,6 +50,7 @@ function removeNode() {
       if (prevNode === currentNode) {
         currentNode = currentNode.next;
         prevNode= currentNode;
+        myList.head= currentNode;
       } else {
         prevNode.next = currentNode.next;
       }
